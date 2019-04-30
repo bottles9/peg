@@ -53,6 +53,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development do
 	gem 'sqlite3', '~> 1.3.6'
 	gem 'foreman', '~> 0.85.0'
+  gem 'better_errors', '~> 2.5', '>= 2.5.1'
 end
 
 gem 'haml', '~> 5.0', '>= 5.0.4'
