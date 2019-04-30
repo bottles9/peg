@@ -1,7 +1,10 @@
 class Post < ApplicationRecord
-	validates :image, presence: true
+	belongs_to :user
 
-	has_attached_file :image,
-	styles: { medium: "700x500#"}
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+	has_one_attached :image
+
+	validate :image_presence
+	  def image_presence
+	    errors.add(:image, "can't be blank") unless image.attached?
+	  end
 end

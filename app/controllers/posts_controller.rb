@@ -1,23 +1,23 @@
 class PostsController < ApplicationController
-  def index
-    @post = Post.all
-  end
-
-  def new
-  	@post = Post.new
-  end
-
   def create
-  	@post = Post.new(post_params)
-  	redirect_to posts_path
-  end
+      Post.create(post_params)
+      redirect_to root_path
+    end
 
+    def show
+      @post = Post.find(params[:id])
+    end
 
+    def destroy
+      @post = current_user.posts.find(params[:id])
+      @post.destroy
 
-  private
+      redirect_to user_path(current_user)
+    end
 
-  def post_params
-  	params.require(:post).permit(:image, :caption)
-  	
-  end
+    private
+
+    def post_params
+      params.require(:post).permit(:description, :image, :user_id)
+    end
 end

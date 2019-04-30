@@ -1,2 +1,27 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="posts">
+  <% @posts.each do |post| %>
+    <section class="post">
+      <div class="user">
+        <div class="avatar">
+          <img src="https://cdn.pixabay.com/photo/2019/04/28/21/12/cosmos-4164414__340.jpg">
+        </div>
+        <div class="username">
+          <%= post.user.username %>
+        </div>
+      </div>
+      <%= image_tag post.image, class: 'main-image' %>
+      <div class="description">
+        <%= post.description %>
+      </div>
+    </section>
+  <% end %>
+  <%= paginate @posts %>
+</div>
+
+
+
+<div class="homepage">
+  <div class='form-upload'>
+    <%= render 'form' %>
+  </div>
+</div>

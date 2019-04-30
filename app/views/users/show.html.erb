@@ -2,7 +2,9 @@
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <img src="https://cdn.pixabay.com/photo/2019/04/28/21/12/cosmos-4164414__340.jpg">
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar %>
+        <%end %>
       </div>
     </div>
     
@@ -14,7 +16,7 @@
         </a>
       </div>
       <ul class="posts">
-        <li><span>12</span> posts</li>
+        <li><span><%= @posts.count %></span> posts</li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
@@ -43,13 +45,9 @@
 </div>
 
 <div class="user-images">
-  <div class="wrapper">
-    <img src="https://cdn.pixabay.com/photo/2019/04/28/21/12/cosmos-4164414__340.jpg">
-  </div>
-  <div class="wrapper">
-    <img src="https://cdn.pixabay.com/photo/2019/04/28/21/12/cosmos-4164414__340.jpg">
-  </div>
-  <div class="wrapper">
-    <img src="https://cdn.pixabay.com/photo/2019/04/28/21/12/cosmos-4164414__340.jpg">
-  </div>
+  <% @posts.each do |post|%>
+    <div class="wrapper">
+      <%=image_tag post.image %>
+    </div>
+  <% end %>
 </div>

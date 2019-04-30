@@ -37,6 +37,7 @@ GEM
       actionpack (= 5.2.3)
       activerecord (= 5.2.3)
       marcel (~> 0.3.1)
+    activestorage-cloudinary-service (0.2.3)
     activesupport (5.2.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
@@ -113,6 +114,18 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -256,6 +269,8 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  activestorage (~> 5.2, >= 5.2.3)
+  activestorage-cloudinary-service (~> 0.2.3)
   acts_as_votable (~> 0.12.0)
   better_errors (~> 2.5, >= 2.5.1)
   bootstrap (~> 4.3, >= 4.3.1)
@@ -270,6 +285,7 @@ DEPENDENCIES
   foreman (~> 0.85.0)
   haml (~> 5.0, >= 5.0.4)
   jbuilder (~> 2.5)
+  kaminari (~> 1.1, >= 1.1.1)
   mini_magick (~> 4.9, >= 4.9.3)
   paperclip (~> 6.1)
   pg
