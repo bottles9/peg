@@ -3,25 +3,27 @@
     <section class="post">
       <div class="user">
         <div class="avatar">
-          <img src="https://cdn.pixabay.com/photo/2019/04/28/21/12/cosmos-4164414__340.jpg">
+          <%# if post.user.avatar.attached? %>
+          <%#= link_to user_path(post.user) do %>
+          <%#= image_tag post.user.avatar %>
+          <img src="assets/avater.jpg">
+          <%# end %>
+          <%# end %>
         </div>
-        <div class="username">
-          <%= post.user.username %>
-        </div>
+          <%= link_to post.user.username, user_path(post.user), class: 'username' %>
       </div>
       <%= image_tag post.image, class: 'main-image' %>
       <div class="description">
-        <%= post.description %>
+        <% post.description.to_s.split(' ').each do |word| %>
+              <% if word.start_with?('#') %>
+              <%= link_to word, search_index_path(query: word) %>
+              <% else %>
+                <%= word %>
+                <% end %>
+                <% end %>
       </div>
     </section>
   <% end %>
   <%= paginate @posts %>
 </div>
 
-
-
-<div class="homepage">
-  <div class='form-upload'>
-    <%= render 'form' %>
-  </div>
-</div>

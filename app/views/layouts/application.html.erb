@@ -22,16 +22,17 @@
               </a>
             </div>
             <div class="m-auto">
-              <form class="form-inline search-form">
-                <input class="form-control mr-sm-2" type="search" placeholder="@search" aria-label="Search">
-              </form>
-            </div>
+                      <%= form_with url: search_index_path, method: :get, local: true, class: 'form-inline search-form' do |form| %>
+                        <%= form.text_field :query, value: params[:query], class: 'form-control mr-sm-2', placeholder: '#search' %>
+                      <% end %>
+                    </div>
             <div class="user-section">
               <a><i class="fa fa-compass"></i></a>
               <a><i class="fa fa-heart"></i></a>
               <% if user_signed_in? %>
                 <a href="<%= user_path(current_user)%>">
                  <i class="fa fa-user"></i>
+                 <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: " shift_me btn btn-danger" %>
                 </a>
               <% else %>
                 <a href="<%= new_user_session_path%>">

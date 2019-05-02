@@ -14,6 +14,9 @@
         <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
           <button>Edit Profile</button>
         </a>
+        <a class="edit-profile" href="<%= new_post_path(current_user) %>">
+          <button>New Post</button>
+        </a>
       </div>
       <ul class="posts">
         <li><span><%= @posts.count %></span> posts</li>
@@ -47,7 +50,9 @@
 <div class="user-images">
   <% @posts.each do |post|%>
     <div class="wrapper">
+      <%= link_to post_path(post) do %>
       <%=image_tag post.image %>
+      <% end %>
     </div>
   <% end %>
 </div>
