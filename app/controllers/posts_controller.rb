@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 def new
-  @post = user.new
+  @post = current_user.posts.build
 end
 
   def create
