@@ -13,7 +13,8 @@ class UsersController < ApplicationController
 
 	def update
 	  current_user.update(user_params)
-	  redirect_to current_user
+	  redirect_to current_user, notice: 'Profile was successfully updated.'
+
 	end
 
 	private

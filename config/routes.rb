@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'home/index'
 	resources :posts
   root 'home#index'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+  	member do
+  		get :following, :followers
+  	end
+  end
   resources :posts, only: [:new, :create, :show, :destroy]
 end

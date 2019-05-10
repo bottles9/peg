@@ -49,6 +49,7 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'activestorage', '~> 5.2', '>= 5.2.3'
 gem 'activestorage-cloudinary-service', '~> 0.2.3'
 gem 'gravatar_image_tag', '~> 1.2'
+#gem "acts_as_follower", github: 'tcocca/acts_as_follower', branch: 'master'
 
 group :production do
   gem 'pg'
